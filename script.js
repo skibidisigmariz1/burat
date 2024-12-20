@@ -1,28 +1,33 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-  const videoContainer = document.getElementById('videoContainer');
+  const videoPlayer = document.getElementById('videoPlayer');
+  const videoSources = [
+    'random.mp4',
+    'random1.mp4'  // Add more video files here
+  ];
+  let currentVideoIndex = 0;
 
-  const videoPlayer = document.createElement('video');
-  videoPlayer.setAttribute('id', 'videoPlayer');
-  videoPlayer.setAttribute('width', '600');
-  videoPlayer.setAttribute('controls', '');
+  videoPlayer.src = videoSources[currentVideoIndex];
 
-  const source = document.createElement('source');
-  source.setAttribute('src', 'random.mp4', 'random1.mp4');
-  source.setAttribute('type', 'video/mp4');
+  const prevButton = document.getElementById('prevButton');
+  const nextButton = document.getElementById('nextButton');
 
-  videoPlayer.appendChild(source);
-  videoContainer.appendChild(videoPlayer);
-
-  // Example controls
-  videoPlayer.addEventListener('play', () => {
-    console.log('Video is playing');
+  prevButton.addEventListener('click', () => {
+    currentVideoIndex = (currentVideoIndex - 1 + videoSources.length) % videoSources.length;
+    videoPlayer.src = videoSources[currentVideoIndex];
+    videoPlayer.play();
   });
 
-  videoPlayer.addEventListener('pause', () => {
-    console.log('Video is paused');
+  nextButton.addEventListener('click', () => {
+    currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+    videoPlayer.src = videoSources[currentVideoIndex];
+    videoPlayer.play();
   });
 
   videoPlayer.addEventListener('ended', () => {
-    console.log('Video has ended');
+    currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+    videoPlayer.src = videoSources[currentVideoIndex];
+    videoPlayer.play();
   });
+
+  videoPlayer.play();
 });
