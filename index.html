@@ -3,20 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>burikat</title>
+  <title>RANDOM VIDEOS</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-mode">
   <div id="videoContainer">
-    <video id="videoPlayer" controls>
-      <source id="videoSource" src="" type="video/mp4">
+    <h1>RANDOM VIDEOS</h1>
+    <video id="videoPlayer" width="300" controls>
+      <source src="random.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <div id="buttonContainer">
-      <button id="prevButton" class="controlButton">PREV</button>
-      <button id="nextButton" class="controlButton">NEXT</button>
+      <button id="prevButton" class="controlButton">Previous</button>
+      <button id="nextButton" class="controlButton">Next</button>
     </div>
   </div>
+  <div id="toggleButtonContainer" style="text-align: center; margin-top: 20px;">
+    <button id="toggleDarkMode" class="controlButton">Toggle Dark/Light Mode</button>
+  </div>
+  <div id="snowContainer"></div>
   <script src="script.js"></script>
 </body>
 </html>
