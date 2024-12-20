@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Fetch video list from the API
   async function fetchVideoList() {
     try {
-      const response = await fetch('https://betadash-shoti-yazky.vercel.app/shotizxx?apikey=shipazu');
+      const response = await fetch('https://betadash-shoti-yazky.vercel.app/');
       const data = await response.json();
       videoList = data.videos; // Adjust according to your API response structure
       if (videoList.length > 0) {
