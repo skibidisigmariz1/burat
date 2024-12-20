@@ -38,4 +38,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.body.classList.toggle('dark-mode');
     document.body.classList.toggle('light-mode');
   });
+
+  // Snow effect
+  function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.className = 'snowflake';
+    const size = Math.random() * 10 + 5;
+    snowflake.style.width = `${size}px`;
+    snowflake.style.height = `${size}px`;
+    snowflake.style.left = `${Math.random() * window.innerWidth}px`;
+    snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+    document.getElementById('snowContainer').appendChild(snowflake);
+
+    setTimeout(() => {
+      snowflake.remove();
+    }, (Math.random() * 3 + 2) * 1000);
+  }
+
+  setInterval(createSnowflake, 100);
 });
