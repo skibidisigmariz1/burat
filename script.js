@@ -1,60 +1,47 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', async () => {
   const videoPlayer = document.getElementById('videoPlayer');
-  const videoSources = [
-    'random.mp4',
-    'random1.mp4',
-    'random2.mp4',
-    'random3.mp4',
-    'random4.mp4'// Add more video files here
-  ];
-  let currentVideoIndex = 0;
-
-  videoPlayer.src = videoSources[currentVideoIndex];
-
+  const videoSource = document.getElementById('videoSource');
   const prevButton = document.getElementById('prevButton');
   const nextButton = document.getElementById('nextButton');
 
+  let videoList = [];
+  let currentIndex = 0;
+
+  // Fetch video list from the API
+  async function fetchVideoList() {
+    try {
+      const response = await fetch('https://betadash-shoti-yazky.vercel.app/shotizxx?apikey=shipazu');
+      const data = await response.json();
+      videoList = data.videos; // Adjust according to your API response structure
+      if (videoList.length > 0) {
+        loadVideo(currentIndex);
+      }
+    } catch (error) {
+      console.error('Error fetching video list:', error);
+    }
+  }
+
+  // Load video by index
+  function loadVideo(index) {
+    videoSource.src = videoList[index];
+    videoPlayer.load();
+  }
+
+  // Event listeners for buttons
   prevButton.addEventListener('click', () => {
-    currentVideoIndex = (currentVideoIndex - 1 + videoSources.length) % videoSources.length;
-    videoPlayer.src = videoSources[currentVideoIndex];
-    videoPlayer.play();
+    if (currentIndex > 0) {
+      currentIndex--;
+      loadVideo(currentIndex);
+    }
   });
 
   nextButton.addEventListener('click', () => {
-    currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
-    videoPlayer.src = videoSources[currentVideoIndex];
-    videoPlayer.play();
+    if (currentIndex < videoList.length - 1) {
+      currentIndex++;
+      loadVideo(currentIndex);
+    }
   });
 
-  videoPlayer.addEventListener('ended', () => {
-    currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
-    videoPlayer.src = videoSources[currentVideoIndex];
-    videoPlayer.play();
-  });
-
-  videoPlayer.play();
-
-  const toggleDarkModeButton = document.getElementById('toggleDarkMode');
-  toggleDarkModeButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    document.body.classList.toggle('light-mode');
-  });
-
-  // Snow effect
-  function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.className = 'snowflake';
-    const size = Math.random() * 10 + 5;
-    snowflake.style.width = `${size}px`;
-    snowflake.style.height = `${size}px`;
-    snowflake.style.left = `${Math.random() * window.innerWidth}px`;
-    snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
-    document.getElementById('snowContainer').appendChild(snowflake);
-
-    setTimeout(() => {
-      snowflake.remove();
-    }, (Math.random() * 3 + 2) * 1000);
-  }
-
-  setInterval(createSnowflake, 100);
+  // Initial fetch of video list
+  fetchVideoList();
 });
