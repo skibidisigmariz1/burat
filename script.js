@@ -1,47 +1,34 @@
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', (event) => {
   const videoPlayer = document.getElementById('videoPlayer');
-  const videoSource = document.getElementById('videoSource');
+  const videoSources = [
+    'random.mp4',
+    'random1.mp4',
+    'random2.mp4',
+    'random3.mp4' // Add more video files here
+  ];
+  let currentVideoIndex = 0;
+
+  videoPlayer.src = videoSources[currentVideoIndex];
+
   const prevButton = document.getElementById('prevButton');
   const nextButton = document.getElementById('nextButton');
 
-  let videoList = [];
-  let currentIndex = 0;
-
-  // Fetch video list from the API
-  async function fetchVideoList() {
-    try {
-      const response = await fetch('https://betadash-shoti-yazky.vercel.app/shotizxx?apikey=shipazu'); // Replace with your API endpoint
-      const data = await response.shotiurl();
-      videoList = data; // Adjust according to your API response structure
-      if (videoList.length > 0) {
-        loadVideo(currentIndex);
-      }
-    } catch (error) {
-      console.error('Error fetching video list:', error);
-    }
-  }
-
-  // Load video by index
-  function loadVideo(index) {
-    videoSource.src = videoList[index].shotiurl; // Adjust according to your API response structure
-    videoPlayer.load();
-  }
-
-  // Event listeners for buttons
   prevButton.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      loadVideo(currentIndex);
-    }
+    currentVideoIndex = (currentVideoIndex - 1 + videoSources.length) % videoSources.length;
+    videoPlayer.src = videoSources[currentVideoIndex];
+    videoPlayer.play();
   });
 
   nextButton.addEventListener('click', () => {
-    if (currentIndex < videoList.length - 1) {
-      currentIndex++;
-      loadVideo(currentIndex);
-    }
+    currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+    videoPlayer.src = videoSources[currentVideoIndex];
+    videoPlayer.play();
   });
 
-  // Initial fetch of video list
-  fetchVideoList();
-});
+  videoPlayer.addEventListener('ended', () => {
+    currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+    videoPlayer.src = videoSources[currentVideoIndex];
+    videoPlayer.play();
+  });
+
+  videoPlayer.play();
