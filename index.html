@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RANDOM</title>
+  <title>RANDOM VIDEOS</title>
   <style>
     body {
       background-color: black;
@@ -11,7 +11,9 @@
       font-family: Arial, sans-serif;
       color: white;
     }
-
+    /* Add this to link the CSS file */
+    <link rel="stylesheet" href="style.css">
+    
     #videoContainer {
       display: flex;
       flex-direction: column;
@@ -48,9 +50,9 @@
     }
   </style>
 </head>
-<body>
+<body class="dark-mode">
   <div id="videoContainer">
-    <h1>Random Videos</h1>
+    <h1>RANDOM VIDEOS</h1>
     <video id="videoPlayer" width="315" controls>
       <source src="random.mp4" type="video/mp4">
       Your browser does not support the video tag.
@@ -59,6 +61,9 @@
       <button id="prevButton" class="controlButton">Previous</button>
       <button id="nextButton" class="controlButton">Next</button>
     </div>
+  </div>
+  <div id="toggleButtonContainer" style="text-align: center; margin-top: 20px;">
+    <button id="toggleDarkMode" class="controlButton">Toggle Dark/Light Mode</button>
   </div>
   <script src="script.js"></script>
 </body>
