@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', (event) => {
   const videoPlayer = document.getElementById('videoPlayer');
   const videoSources = [
-    'random.mp4',
     'random1.mp4',
     'random2.mp4',
-    'random3.mp4' // Add more video files here
+    'random3.mp4',
+    'random4.mp4',
+    'random5.mp4'// Add more video files here
   ];
   let currentVideoIndex = 0;
 
@@ -32,3 +33,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
   });
 
   videoPlayer.play();
+});
