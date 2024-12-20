@@ -1,15 +1,19 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const videoPlayer = document.getElementById('videoPlayer');
+    const videoSources = [
+        'random.mp4',
+        '',
+        ''
+    ];
+    let currentVideoIndex = 0;
 
-    videoPlayer.addEventListener('play', () => {
-        console.log('Video is playing');
-    });
-
-    videoPlayer.addEventListener('pause', () => {
-        console.log('Video is paused');
-    });
+    videoPlayer.src = videoSources[currentVideoIndex];
 
     videoPlayer.addEventListener('ended', () => {
-        console.log('Video has ended');
+        currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+        videoPlayer.src = videoSources[currentVideoIndex];
+        videoPlayer.play();
     });
+
+    videoPlayer.play();
 });
