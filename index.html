@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RANDOM VIDEOS</title>
+  <title>RANDOM</title>
   <style>
     body {
       background-color: black;
@@ -11,25 +11,24 @@
       font-family: Arial, sans-serif;
       color: white;
     }
-    <link rel="stylesheet" href="style.css">
-    
+
     #videoContainer {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      height: 30vh;
     }
 
     #buttonContainer {
       display: flex;
       justify-content: center;
-      margin-top: 10px;
+      margin-top: 20px;
     }
 
     .controlButton {
-      padding: 10px 20px;
-      font-size: 16px;
+      padding: 20px 20px;
+      font-size: 26px;
       margin: 0 5px;
       background-color: #007bff;
       border: none;
@@ -44,15 +43,15 @@
     }
 
     #videoPlayer {
-      border-radius: 10px;
+      border-radius: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
   </style>
 </head>
-<body class="dark-mode">
+<body>
   <div id="videoContainer">
-    <h1>RANDOM VIDEOS</h1>
-    <video id="videoPlayer" width="315" controls>
+    <h>RANDOM VIDEOS</h>
+    <video id="videoPlayer" width="300" controls>
       <source src="random.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -60,9 +59,6 @@
       <button id="prevButton" class="controlButton">Previous</button>
       <button id="nextButton" class="controlButton">Next</button>
     </div>
-  </div>
-  <div id="toggleButtonContainer" style="text-align: center; margin-top: 20px;">
-    <button id="toggleDarkMode" class="controlButton">Toggle Dark/Light Mode</button>
   </div>
   <script src="script.js"></script>
 </body>
