@@ -5,21 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Burat</title>
   <style>
-    #videoContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    #buttonContainer {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
-    .controlButton {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin: 0 5px;
-    }
+    body {
+  background-color: black;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+#videoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.controlButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 0 5px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.controlButton:hover {
+  background-color: #0056b3;
+}
   </style>
 </head>
 <body>
