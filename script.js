@@ -1,19 +1,28 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    const videoPlayer = document.getElementById('videoPlayer');
-    const videoSources = [
-        'random.mp4',
-        '',
-        ''
-    ];
-    let currentVideoIndex = 0;
+  const videoContainer = document.getElementById('videoContainer');
 
-    videoPlayer.src = videoSources[currentVideoIndex];
+  const videoPlayer = document.createElement('video');
+  videoPlayer.setAttribute('id', 'videoPlayer');
+  videoPlayer.setAttribute('width', '600');
+  videoPlayer.setAttribute('controls', '');
 
-    videoPlayer.addEventListener('ended', () => {
-        currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
-        videoPlayer.src = videoSources[currentVideoIndex];
-        videoPlayer.play();
-    });
+  const source = document.createElement('source');
+  source.setAttribute('src', 'random.mp4');
+  source.setAttribute('type', 'video/mp4');
 
-    videoPlayer.play();
+  videoPlayer.appendChild(source);
+  videoContainer.appendChild(videoPlayer);
+
+  // Example controls
+  videoPlayer.addEventListener('play', () => {
+    console.log('Video is playing');
+  });
+
+  videoPlayer.addEventListener('pause', () => {
+    console.log('Video is paused');
+  });
+
+  videoPlayer.addEventListener('ended', () => {
+    console.log('Video has ended');
+  });
 });
