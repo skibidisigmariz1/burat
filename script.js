@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     'random1.mp4',
     'random2.mp4',
     'random3.mp4',
-    'https://vt.tiktok.com/ZS6NXKPnq/'// Add more video files here
+    'random4.mp4'// Add more video files here
   ];
   let currentVideoIndex = 0;
 
