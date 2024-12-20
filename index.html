@@ -137,29 +137,6 @@
 
     <button id="next-button">ᑎE᙭T ᐯIᗪEO</button>
 
-    <script>
-        async function getRandomVideo() {
-            try {
-                const url = 'https://betadash-shoti-yazky.vercel.app/shotizxx';
-                const rawResponse = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ apikey: "$shipazu" })
-                });
-                const content = await rawResponse.json();
-                document.getElementById('video').src = content.data.shotiurl;
-            } catch (e) {
-                console.error("Error fetching Shoti video", e);
-            }
-        }
-
-        getRandomVideo();
-
-        document.getElementById('next-button').addEventListener('click', () => {
-            getRandomVideo();
-        });
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
