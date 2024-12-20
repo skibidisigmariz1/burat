@@ -1,9 +1,34 @@
-body.light-mode {
-  background-color: white;
-  color: black;
+@keyframes snow {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh); }
 }
 
-body.dark-mode {
-  background-color: black;
-  color: white;
+.snowflake {
+  position: absolute;
+  top: -10px;
+  background: white;
+  opacity: 0.8;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: snow linear infinite;
+}
+
+.snowflake::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: white;
+  position: absolute;
+  border-radius: 50%;
+}
+
+#snowContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
 }
