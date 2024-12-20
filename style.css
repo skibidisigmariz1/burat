@@ -1,0 +1,29 @@
+.typing-container {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid;
+    width: 11ch; /* Adjust based on the length of the text */
+    animation: typing 3s steps(11), blink 0.5s step-end infinite alternate;
+}
+
+.typing-text {
+    display: inline-block;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 11ch; /* Adjust based on the length of the text */
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
