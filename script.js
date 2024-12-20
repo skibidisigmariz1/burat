@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const videoSources = [
     'random.mp4',
     'random1.mp4',
-    'random2.mp4'// Add more video files here
+    'random2.mp4',
+    'random3.mp4'// Add more video files here
   ];
   let currentVideoIndex = 0;
 
