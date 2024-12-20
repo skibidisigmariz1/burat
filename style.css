@@ -4,35 +4,14 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    background: #333;
     font-family: Arial, sans-serif;
-}
-
-.container {
-    text-align: center;
-}
-
-.hello-world {
-    font-size: 3rem;
     color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 3s ease-in-out, bounce 2s infinite alternate;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes bounce {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-20px);
-    }
+.video-container {
+    max-width: 80%;
+    border: 2px solid #fff;
+    padding: 10px;
+    background: #000;
 }
