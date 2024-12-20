@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   videoPlayer.setAttribute('controls', '');
 
   const source = document.createElement('source');
-  source.setAttribute('src', 'random.mp4');
+  source.setAttribute('src', 'random.mp4', 'random1');
   source.setAttribute('type', 'video/mp4');
 
   videoPlayer.appendChild(source);
