@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     'random.mp4',
     'random1.mp4',
     'random2.mp4',
-    'random3.mp4'// Add more video files here
+    'random3.mp4' // Add more video files here
   ];
   let currentVideoIndex = 0;
 
@@ -32,4 +32,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
   });
 
   videoPlayer.play();
+
+  const toggleDarkModeButton = document.getElementById('toggleDarkMode');
+  toggleDarkModeButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    document.body.classList.toggle('light-mode');
+  });
 });
