@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Burat</title>
+  <style>
+    #videoContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #buttonContainer {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .controlButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 0 5px;
+    }
+  </style>
 </head>
 <body>
   <div id="videoContainer">
@@ -11,9 +28,11 @@
       <source src="random.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+    <div id="buttonContainer">
+      <button id="prevButton" class="controlButton">Previous</button>
+      <button id="nextButton" class="controlButton">Next</button>
+    </div>
   </div>
-  <button id="prevButton">Previous</button>
-  <button id="nextButton">Next</button>
   <script src="script.js"></script>
 </body>
 </html>
