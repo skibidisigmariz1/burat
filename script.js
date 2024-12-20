@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     'random3.mp4',
     'random4.mp4',
     'random5.mp4',
-    'random.mp4'// Add more video files here
+    'random.mp4' // Add more video files here
   ];
   let currentVideoIndex = 0;
 
