@@ -9,9 +9,9 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/random-video', async (req, res) => {
+app.get('/shotizxx', async (req, res) => {
   try {
-    const url = 'https://betadash-shoti-yazky.vercel.app/shotizxx';
+    const url = 'https://betadash-shoti-yazky.vercel.app';
     const rawResponse = await fetch(url, {
       method: 'POST',
       headers: {
