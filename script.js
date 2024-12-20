@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Fetch video list from the API
   async function fetchVideoList() {
     try {
-      const response = await fetch('https://betadash-shoti-yazky.vercel.app/shotizxx?apikey=shipazu');
-      const data = await response.data();
+      const response = await fetch('https://betadash-shoti-yazky.vercel.app/shotizxx?apikey=shipazu'); // Replace with your API endpoint
+      const data = await response.shotiurl();
       videoList = data; // Adjust according to your API response structure
       if (videoList.length > 0) {
         loadVideo(currentIndex);
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Load video by index
   function loadVideo(index) {
-    videoSource.src = videoList[index];
+    videoSource.src = videoList[index].shotiurl; // Adjust according to your API response structure
     videoPlayer.load();
   }
 
